@@ -16,33 +16,33 @@
 -->
 
 <resources>
-    <string name="app_name"><![CDATA[Videos by Google]]></string>
-    <string name="browse_title"><![CDATA[Videos by Google]]></string>
-    <string name="related_movies">Related Videos</string>
-    <string name="vertical_grid_title"><![CDATA[Vertical Video Grid]]></string>
+    <string name="app_name"><![CDATA[Videos de Google]]></string>
+    <string name="browse_title"><![CDATA[Videos de Google]]></string>
+    <string name="related_movies"> Videos Relacionados</string>
+    <string name="vertical_grid_title"><![CDATA[Video vertical]]></string>
 
-    <string name="popular_header">Popular Videos</string>
-    <string name="more_samples">More Samples</string>
-    <string name="grid_view">Vertical Grid View</string>
-    <string name="error_fragment">Error Fragment</string>
-    <string name="personal_settings">Personal Settings</string>
-    <string name="watch_trailer_1">Watch trailer</string>
-    <string name="watch_trailer_2">FREE</string>
-    <string name="rent_1">Rent By Day</string>
-    <string name="rent_2">From $1.99</string>
-    <string name="buy_1">Buy and Own</string>
-    <string name="buy_2">AT $9.99</string>
-    <string name="queue_name">Play Queue</string>
+    <string name="popular_header">Videos populares </string>
+    <string name="more_samples">Mas ejemplos</string>
+    <string name="grid_view">Video vertical</string>
+    <string name="error_fragment">Error de fragmento</string>
+    <string name="personal_settings">Ajustes de usuario</string>
+    <string name="watch_trailer_1">Ver trailer</string>
+    <string name="watch_trailer_2">Gratis</string>
+    <string name="rent_1">Alquila por dias</string>
+    <string name="rent_2">Desde $1.99</string>
+    <string name="buy_1">Comprar</string>
+    <string name="buy_2">Por $9.99</string>
+    <string name="queue_name">Reproducir cola</string>
 
-    <string name="search_results">Search results for \'%1$s\'</string>
-    <string name="no_search_results">No search results found for \'%1$s\'</string>
+    <string name="search_results">Buscar resultados para \'%1$s\'</string>
+    <string name="no_search_results">No hay resultados de búsquedas para \'%1$s\'</string>
     <string name="catalog_url">https://storage.googleapis.com/android-tv/android_tv_videos_new.json</string>
 
     <!-- Error messages -->
 
-    <string name="videos_loading_error">Failed to load videos. Please check your network connection.</string>
-    <string name="error_fragment_message">An error occurred</string>
-    <string name="dismiss_error">Dismiss</string>
+    <string name="videos_loading_error">Error al cargar los videos. Porfavor comprueba tu conexión.</string>
+    <string name="error_fragment_message">Ha habido un error</string>
+    <string name="dismiss_error">Descartar</string>
 
     <!-- Global Search -->
     <!-- The action label for global search -->
@@ -52,7 +52,7 @@
     <string name="search_label">Leanback API Demo</string>
 
     <!-- The hint text that appears in the search box. -->
-    <string name="search_hint">Search for videos</string>
+    <string name="search_hint">Buscar videos</string>
 
     <!-- The description that will show up in the search settings for this source.  -->
     <string name="settings_description">Leanback API Demo Videos</string>
@@ -109,17 +109,17 @@
     <string name="onboarding_description_design">The Leanback sample shows how to quickly design apps designed for a 10-foot user interface</string>
     <string name="onboarding_description_simple">You can include the Leanback library through gradle in your own apps</string>
     <string name="onboarding_description_project">Are you looking for guidance? This sample is available on GitHub so you can see how we built this.</string>
-    <string name="pref_title_settings">App Settings</string>
-    <string name="pref_title_recommendations">Recommendations</string>
+    <string name="pref_title_settings">Ajustes de app</string>
+    <string name="pref_title_recommendations">Recomendaciones</string>
     <string name="pref_key_recommendations">pref_recommendations</string>
     <string name="pref_key_screen_general">general_settings</string>
-    <string name="pref_title_screen_general">General Settings</string>
+    <string name="pref_title_screen_general">Ajustes generañes</string>
     <string name="pref_key_screen_signin">signin</string>
-    <string name="pref_title_screen_signin">Please Login</string>
-    <string name="pref_title_login_description">Please enter your username and password</string>
-    <string name="pref_title_username">Username</string>
-    <string name="pref_title_password">Password</string>
+    <string name="pref_title_screen_signin">Registrarse</string>
+    <string name="pref_title_login_description">Introudce usuario y contraseña</string>
+    <string name="pref_title_username">Usuario</string>
+    <string name="pref_title_password">Contraseña</string>
     <string name="pref_key_login">pref_login</string>
-    <string name="pref_title_login">Login</string>
+    <string name="pref_title_login">Iniciar sesion</string>
     <string name="playback_tag">PLAYBACK_TAG</string>
 </resources>
