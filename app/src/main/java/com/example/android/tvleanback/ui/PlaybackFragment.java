@@ -56,13 +56,16 @@ import com.google.android.exoplayer2.ext.leanback.LeanbackPlayerAdapter;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
+import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 import static com.example.android.tvleanback.ui.PlaybackFragment.VideoLoaderCallbacks.RELATED_VIDEOS_LOADER;
@@ -85,6 +88,8 @@ public class PlaybackFragment extends VideoSupportFragment {
     private Playlist mPlaylist;
     private VideoLoaderCallbacks mVideoLoaderCallbacks;
     private CursorObjectAdapter mVideoCursorAdapter;
+
+    private String stream;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -181,15 +186,22 @@ public class PlaybackFragment extends VideoSupportFragment {
 
     private void prepareMediaForPlaying(Uri mediaSourceUri) {
         String userAgent = Util.getUserAgent(getActivity(), "VideoPlayerGlue");
-        MediaSource mediaSource =
-                new ExtractorMediaSource(
-                        mediaSourceUri,
-                        new DefaultDataSourceFactory(getActivity(), userAgent),
-                        new DefaultExtractorsFactory(),
-                        null,
-                        null);
-
-        mPlayer.prepare(mediaSource);
+        stream = mVideo.videoUrl.split("\\.")[mVideo.videoUrl.split("\\.").length-1];
+        if(stream.equals("m3u8")){
+            DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory(userAgent);
+            HlsMediaSource hlsMediaSource = new HlsMediaSource.Factory(dataSourceFactory)
+                    .createMediaSource(mediaSourceUri);
+            mPlayer.prepare(hlsMediaSource);
+        }else if(stream.equals("mp4")){
+            MediaSource mediaSource =
+                    new ExtractorMediaSource(
+                            mediaSourceUri,
+                            new DefaultDataSourceFactory(getActivity(), userAgent),
+                            new DefaultExtractorsFactory(),
+                            null,
+                            null);
+            mPlayer.prepare(mediaSource);
+        }
     }
 
     private ArrayObjectAdapter initializeRelatedVideosRow() {
