@@ -96,6 +96,11 @@ public class VideoDetailsFragment extends DetailsSupportFragment
     private FullWidthDetailsOverviewSharedElementHelper mHelper;
     private final VideoCursorMapper mVideoCursorMapper = new VideoCursorMapper();
 
+    private String dispositiu; //sera o 'tele' o 'mobil'
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -202,10 +207,16 @@ public class VideoDetailsFragment extends DetailsSupportFragment
         detailsPresenter.setOnActionClickedListener(new OnActionClickedListener() {
             @Override
             public void onActionClicked(Action action) {
+
+
                 if (action.getId() == ACTION_WATCH_TRAILER) {
                     Intent intent = new Intent(getActivity(), PlaybackActivity.class);
                     intent.putExtra(VideoDetailsActivity.VIDEO, mSelectedVideo);
                     startActivity(intent);
+
+                    dispositiu = (VideoDetailsActivity) getActivity().getDispositiu();
+
+
                 } else {
                     Toast.makeText(getActivity(), action.toString(), Toast.LENGTH_SHORT).show();
                 }

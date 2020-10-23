@@ -93,6 +93,8 @@ public class PlaybackFragment extends VideoSupportFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
         mVideo = getActivity().getIntent().getParcelableExtra(VideoDetailsActivity.VIDEO);
@@ -107,6 +109,8 @@ public class PlaybackFragment extends VideoSupportFragment {
                 .initLoader(VideoLoaderCallbacks.QUEUE_VIDEOS_LOADER, args, mVideoLoaderCallbacks);
 
         mVideoCursorAdapter = setupRelatedVideosCursor();
+        //aqui va percal: comprovar si el disp es tv o mobil, si es tv, leer la bbdd i reproducir lo q el mobil ha puesto//
+
     }
 
     @Override

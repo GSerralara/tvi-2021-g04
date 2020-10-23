@@ -27,6 +27,9 @@ public class VideoDetailsActivity extends LeanbackActivity {
     public static final String SHARED_ELEMENT_NAME = "hero";
     public static final String VIDEO = "Video";
     public static final String NOTIFICATION_ID = "NotificationId";
+    public static String dispositiu;
+
+
 
     /**
      * Called when the activity is first created.
@@ -34,6 +37,15 @@ public class VideoDetailsActivity extends LeanbackActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if ((UiModeManager) getSystemService(UI_MODE_SERVICE).getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION) {
+            dispositiu = "tele";
+        }else{
+            dispositiu = "mobil";
+        }
+
+
+
         setContentView(R.layout.fragment_details);
     }
 }
