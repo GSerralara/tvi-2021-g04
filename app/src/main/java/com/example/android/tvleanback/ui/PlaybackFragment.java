@@ -178,19 +178,19 @@ public class PlaybackFragment extends VideoSupportFragment {
     }
 
     private void play(Video video) {
-        //mPlayerGlue.setTitle(video.title);
-        //mPlayerGlue.setSubtitle(video.description);
-        //prepareMediaForPlaying(Uri.parse(video.videoUrl));
-        mPlayerGlue.setTitle("Video 1");
-        mPlayerGlue.setSubtitle("Primer Stream");
-        prepareMediaForPlaying(Uri.parse("https://hlsliveamdgl1-lh.akamaihd.net/i/hlsdvrlive_1@60414/master.m3u8"));
+        mPlayerGlue.setTitle(video.title);
+        mPlayerGlue.setSubtitle(video.description);
+        prepareMediaForPlaying(Uri.parse(video.videoUrl));
+        //mPlayerGlue.setTitle("Video 1");
+        //mPlayerGlue.setSubtitle("Primer Stream");
+        //prepareMediaForPlaying(Uri.parse("https://hlsliveamdgl1-lh.akamaihd.net/i/hlsdvrlive_1@60414/master.m3u8"));
         mPlayerGlue.play();
     }
 
     private void prepareMediaForPlaying(Uri mediaSourceUri) {
         String userAgent = Util.getUserAgent(getActivity(), "VideoPlayerGlue");
         stream = mVideo.videoUrl.split("\\.")[mVideo.videoUrl.split("\\.").length-1];
-        stream = "m3u8";//Porque buscamos en el json pero le pasamos hardcore en el play()
+        //stream = "m3u8";//Porque buscamos en el json pero le pasamos hardcore en el play()
         if(stream.equals("m3u8")){
             DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory(userAgent);
             HlsMediaSource hlsMediaSource = new HlsMediaSource.Factory(dataSourceFactory)
