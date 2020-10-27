@@ -95,10 +95,10 @@ public class VideoDetailsFragment extends DetailsSupportFragment
     private CursorObjectAdapter mVideoCursorAdapter;
     private FullWidthDetailsOverviewSharedElementHelper mHelper;
     private final VideoCursorMapper mVideoCursorMapper = new VideoCursorMapper();
-
-    private String dispositiu; //sera o 'tele' o 'mobil'
-
-
+    private static String disp;
+    public static String getDisp() {
+        return disp;
+    }
 
 
     @Override
@@ -213,9 +213,12 @@ public class VideoDetailsFragment extends DetailsSupportFragment
                     Intent intent = new Intent(getActivity(), PlaybackActivity.class);
                     intent.putExtra(VideoDetailsActivity.VIDEO, mSelectedVideo);
                     startActivity(intent);
+                    VideoDetailsActivity videoDetailsActivity = (VideoDetailsActivity) getActivity();
+                    disp = videoDetailsActivity.dispositiu;
+                    if(disp.equals("tele")){
+                        FireBaseConector.write(mSelectedVideo);
 
-                    dispositiu = (VideoDetailsActivity) getActivity().getDispositiu();
-
+                    }
 
                 } else {
                     Toast.makeText(getActivity(), action.toString(), Toast.LENGTH_SHORT).show();

@@ -16,6 +16,8 @@
 
 package com.example.android.tvleanback.ui;
 
+import android.app.UiModeManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.example.android.tvleanback.R;
@@ -37,8 +39,8 @@ public class VideoDetailsActivity extends LeanbackActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if ((UiModeManager) getSystemService(UI_MODE_SERVICE).getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION) {
+        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+    if (uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION) {
             dispositiu = "tele";
         }else{
             dispositiu = "mobil";

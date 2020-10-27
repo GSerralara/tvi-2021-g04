@@ -12,4 +12,6 @@ public abstract class LeanbackActivity extends FragmentActivity {
         startActivity(new Intent(this, SearchActivity.class));
         return true;
     }
+
+
 }

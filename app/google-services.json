@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "556930564079",
+    "firebase_url": "https://tv-interactiva-grupo-4.firebaseio.com",
+    "project_id": "tv-interactiva-grupo-4",
+    "storage_bucket": "tv-interactiva-grupo-4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556930564079:android:ddf6656601631ba97e401a",
+        "android_client_info": {
+          "package_name": "com.example.android.tvleanback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556930564079-t55jdi0mcutp26f0hji5kahnfugdlg3n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwbSGp87_vDV4NXspbOgzPSaNHngYczH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556930564079-t55jdi0mcutp26f0hji5kahnfugdlg3n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
