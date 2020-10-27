@@ -109,10 +109,7 @@ public class PlaybackFragment extends VideoSupportFragment {
                 .initLoader(VideoLoaderCallbacks.QUEUE_VIDEOS_LOADER, args, mVideoLoaderCallbacks);
 
         mVideoCursorAdapter = setupRelatedVideosCursor();
-       if(VideoDetailsFragment.getDisp().equals("tele")){
-           FireBaseConector firebaseCon = new FireBaseConector();
-           firebaseCon.read();
-       }
+
 
     }
 

@@ -68,6 +68,8 @@ import com.example.android.tvleanback.model.VideoCursorMapper;
 import com.example.android.tvleanback.presenter.CardPresenter;
 import com.example.android.tvleanback.presenter.DetailsDescriptionPresenter;
 
+import static com.example.android.tvleanback.ui.MainActivity.disp;
+
 /*
  * VideoDetailsFragment extends DetailsFragment, a Wrapper fragment for leanback details screens.
  * It shows a detailed view of video and its metadata plus related videos.
@@ -95,11 +97,10 @@ public class VideoDetailsFragment extends DetailsSupportFragment
     private CursorObjectAdapter mVideoCursorAdapter;
     private FullWidthDetailsOverviewSharedElementHelper mHelper;
     private final VideoCursorMapper mVideoCursorMapper = new VideoCursorMapper();
-    private static String disp;
+
     public static String getDisp() {
         return disp;
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -210,16 +211,14 @@ public class VideoDetailsFragment extends DetailsSupportFragment
 
 
                 if (action.getId() == ACTION_WATCH_TRAILER) {
-                    Intent intent = new Intent(getActivity(), PlaybackActivity.class);
-                    intent.putExtra(VideoDetailsActivity.VIDEO, mSelectedVideo);
-                    startActivity(intent);
-                    VideoDetailsActivity videoDetailsActivity = (VideoDetailsActivity) getActivity();
-                    disp = videoDetailsActivity.dispositiu;
-                    if(disp.equals("tele")){
+                    if(disp.equals("mobil")){
                         FireBaseConector.write(mSelectedVideo);
-
                     }
-
+                    else {
+                        Intent intent = new Intent(getActivity(), PlaybackActivity.class);
+                        intent.putExtra(VideoDetailsActivity.VIDEO, mSelectedVideo);
+                        startActivity(intent);
+                    }
                 } else {
                     Toast.makeText(getActivity(), action.toString(), Toast.LENGTH_SHORT).show();
                 }

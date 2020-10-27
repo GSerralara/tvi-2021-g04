@@ -16,17 +16,31 @@
 
 package com.example.android.tvleanback.ui;
 
+import android.app.UiModeManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import com.example.android.tvleanback.R;
+import com.example.android.tvleanback.model.Video;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import androidx.annotation.NonNull;
 
 /*
  * MainActivity class that loads MainFragment.
  */
 public class MainActivity extends LeanbackActivity {
+    public static String disp;
+    public static String getDisp() {
+        return disp;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,5 +50,46 @@ public class MainActivity extends LeanbackActivity {
             // This is the first time running the app, let's go to onboarding
             startActivity(new Intent(this, OnboardingActivity.class));
         }
+        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+        if (uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION) {
+            disp = "tele";
+        }else{
+            disp = "mobil";
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(VideoDetailsFragment.getDisp().equals("tele")){
+            read();
+        }
+    }
+    public void read() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("stream");
+        Intent intent = new Intent(this, PlaybackActivity.class);
+        ValueEventListener event = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //cuando hay cambios en el database se autoejecutara esta funcion
+                //ToDo: coger video que se recibe y reproducirlo
+                //Crear un Video Obj
+                Video video = dataSnapshot.getValue(Video.class);
+                if(video != null){
+                    intent.putExtra(VideoDetailsActivity.VIDEO, video);
+                    myRef.removeValue();
+                    startActivity(intent);
+                }
+                //Pasar obj a PlaybackFragment
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        myRef.addValueEventListener(event);
     }
 }

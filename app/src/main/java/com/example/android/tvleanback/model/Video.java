@@ -52,6 +52,31 @@ public final class Video implements Parcelable {
         this.studio = studio;
     }
 
+    public Video(String str) {
+        this.id = 0;
+        this.category = "";
+        this.title = "";
+        this.description = "";
+        this.videoUrl = str;
+        this.bgImageUrl = "";
+        this.cardImageUrl = "";
+        this.studio = "";
+    }
+    public Video() {
+        this.id = 0;
+        this.category = "";
+        this.title = "";
+        this.description = "";
+        this.videoUrl = "";
+        this.bgImageUrl = "";
+        this.cardImageUrl = "";
+        this.studio = "";
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
     protected Video(Parcel in) {
         id = in.readLong();
         category = in.readString();

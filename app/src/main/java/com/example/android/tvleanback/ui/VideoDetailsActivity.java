@@ -39,12 +39,8 @@ public class VideoDetailsActivity extends LeanbackActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
-    if (uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION) {
-            dispositiu = "tele";
-        }else{
-            dispositiu = "mobil";
-        }
+
+
 
 
 
