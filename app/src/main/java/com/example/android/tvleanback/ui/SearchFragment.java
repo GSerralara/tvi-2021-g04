@@ -53,6 +53,8 @@ import com.example.android.tvleanback.model.Video;
 import com.example.android.tvleanback.model.VideoCursorMapper;
 import com.example.android.tvleanback.presenter.CardPresenter;
 
+import static com.example.android.tvleanback.ui.MainActivity.disp;
+
 /*
  * This class demonstrates how to do in-app search
  */
@@ -72,6 +74,7 @@ public class SearchFragment extends SearchSupportFragment
 
     private int mSearchLoaderId = 1;
     private boolean mResultsFound = false;
+    private  int requestCode = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,6 +119,7 @@ public class SearchFragment extends SearchSupportFragment
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        this.requestCode = requestCode;
         switch (requestCode) {
             case REQUEST_SPEECH:
                 switch (resultCode) {
@@ -205,6 +209,16 @@ public class SearchFragment extends SearchSupportFragment
         mRowsAdapter.clear();
         ListRow row = new ListRow(header, mVideoCursorAdapter);
         mRowsAdapter.add(row);
+        if(mResultsFound && REQUEST_SPEECH == this.requestCode){
+            Video v = (Video) mVideoCursorAdapter.get(0);
+            if(disp.equals("mobil")){
+                FireBaseConector.write(v);
+            }
+            Intent intent = new Intent(this.getActivity(), PlaybackActivity.class);
+            intent.putExtra(VideoDetailsActivity.VIDEO, v);
+            startActivity(intent);
+        }
+        this.requestCode = 0;
     }
 
     @Override

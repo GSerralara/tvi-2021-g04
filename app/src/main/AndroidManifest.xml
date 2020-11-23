@@ -88,13 +88,15 @@
             android:name=".ui.PlaybackActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|layoutDirection"
             android:launchMode="singleTask"
+            android:keepScreenOn="true"
             android:resizeableActivity="true" />
         <activity
             android:name=".ui.VerticalGridActivity"
             android:exported="true"
             android:parentActivityName=".ui.MainActivity"
             android:theme="@style/Theme.Leanback.VerticalGrid" />
-        <activity android:name=".ui.SearchActivity" />
+        <activity android:name=".ui.SearchActivity"
+            android:noHistory="true"/>
         <activity
             android:name=".ui.GuidedStepActivity"
             android:theme="@style/Theme.Example.Leanback.GuidedStep" />
