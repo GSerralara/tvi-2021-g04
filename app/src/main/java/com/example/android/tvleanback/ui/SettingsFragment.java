@@ -14,7 +14,10 @@
 
 package com.example.android.tvleanback.ui;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.preference.PreferenceFragment;
 import androidx.leanback.preference.LeanbackPreferenceFragment;
@@ -22,14 +25,19 @@ import androidx.leanback.preference.LeanbackSettingsFragment;
 import androidx.preference.DialogPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+import android.widget.Toast;
 
 import com.example.android.tvleanback.R;
+
+import static com.example.android.tvleanback.ui.MainActivity.disp;
 
 public class SettingsFragment extends LeanbackSettingsFragment
         implements DialogPreference.TargetFragment {
     private final static String PREFERENCE_RESOURCE_ID = "preferenceResource";
     private final static String PREFERENCE_ROOT = "root";
     private PreferenceFragment mPreferenceFragment;
+
 
     @Override
     public void onPreferenceStartInitialScreen() {
@@ -81,6 +89,22 @@ public class SettingsFragment extends LeanbackSettingsFragment
 
         @Override
         public boolean onPreferenceTreeClick(Preference preference) {
+
+           if(preference.getKey().equals("Help_key") ){
+                Toast.makeText(this.getActivity(),"Ayuda",Toast.LENGTH_SHORT).show();
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData( Uri.parse("mailto:"));
+                emailIntent.setType("text/plain");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Body");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                try{
+                    startActivity(Intent.createChooser(emailIntent,"Elige un Mail"));
+                }catch (Exception e){
+                    Toast.makeText(this.getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            }
+
             if (preference.getKey().equals(getString(R.string.pref_key_login))) {
                 // Open an AuthenticationActivity
                 startActivity(new Intent(getActivity(), AuthenticationActivity.class));
@@ -88,4 +112,5 @@ public class SettingsFragment extends LeanbackSettingsFragment
             return super.onPreferenceTreeClick(preference);
         }
     }
+
 }

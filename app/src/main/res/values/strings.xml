@@ -27,8 +27,8 @@
     <string name="personal_settings">Ajustes de usuario</string>
     <string name="watch_trailer_1">Ver trailer</string>
     <string name="watch_trailer_2">Gratis</string>
-    <string name="rent_1">Alquila por dias</string>
-    <string name="rent_2">Desde $1.99</string>
+    <string name="rent_1">Comparte</string>
+    <string name="rent_2">Este canal</string>
     <string name="buy_1">Comprar</string>
     <string name="buy_2">Por $9.99</string>
     <string name="queue_name">Reproducir cola</string>
@@ -109,7 +109,9 @@
     <string name="onboarding_description_project">Are you looking for guidance? This sample is available on GitHub so you can see how we built this.</string>
     <string name="pref_title_settings">Ajustes de app</string>
     <string name="pref_title_recommendations">Recomendaciones</string>
+    <string name="pref_title_theme">Ayuda</string>
     <string name="pref_key_recommendations">pref_recommendations</string>
+    <string name="pref_key_theme">pref_theme</string>
     <string name="pref_key_screen_general">general_settings</string>
     <string name="pref_title_screen_general">Ajustes generañes</string>
     <string name="pref_key_screen_signin">signin</string>
