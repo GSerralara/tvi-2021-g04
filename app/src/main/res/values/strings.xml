@@ -25,8 +25,8 @@
     <string name="grid_view">Video vertical</string>
     <string name="error_fragment">Error de fragmento</string>
     <string name="personal_settings">Ajustes de usuario</string>
-    <string name="watch_trailer_1">Ver trailer</string>
-    <string name="watch_trailer_2">Gratis</string>
+    <string name="watch_trailer_1">Reproducir</string>
+    <string name="watch_trailer_2">Canal</string>
     <string name="rent_1">Comparte</string>
     <string name="rent_2">Este canal</string>
     <string name="buy_1">Comprar</string>
@@ -98,18 +98,19 @@
     <string name="mobile_welcome_description">Welcome to the Leanback Sample app! Try opening this on an Android TV for a great leanback experience.</string>
 
     <!-- Strings related to onboarding -->
-    <string name="onboarding_title_welcome">Welcome to the Leanback Sample</string>
-    <string name="onboarding_title_design">Designed for Android TV</string>
-    <string name="onboarding_title_simple">Simple to include</string>
-    <string name="onboarding_title_project">Check out the Sample Project</string>
+    <string name="onboarding_title_welcome">Welcome to GRUP04 TV!</string>
+    <string name="onboarding_title_design">Simple navigation and usability!</string>
+    <string name="onboarding_title_simple">Use the channel search function!</string>
+    <string name="onboarding_title_project">Contact Us!</string>
 
-    <string name="onboarding_description_welcome">This is the Onboarding Fragment, which runs when the user first opens the app</string>
-    <string name="onboarding_description_design">The Leanback sample shows how to quickly design apps designed for a 10-foot user interface</string>
-    <string name="onboarding_description_simple">You can include the Leanback library through gradle in your own apps</string>
-    <string name="onboarding_description_project">Are you looking for guidance? This sample is available on GitHub so you can see how we built this.</string>
+    <string name="onboarding_description_welcome">Enjoy watching your favorite TV channels! Browse our extensive catalog organized according to different geographical areas.</string>
+    <string name="onboarding_description_design">Select a geographical area, scroll through the different channels, choose the one you want to play and press "Reproducir Canal".</string>
+    <string name="onboarding_description_simple">You can use our search engine, both written and by voice, to find what you are looking for quickly and easily.</string>
+    <string name="onboarding_description_project">Looking for guidance? Do you want to tell us about some possible improvements? Use our "Help Desk" to contact us!</string>
+
     <string name="pref_title_settings">Ajustes de app</string>
     <string name="pref_title_recommendations">Recomendaciones</string>
-    <string name="pref_title_theme">Ayuda</string>
+    <string name="pref_title_theme">Ayuda</string>f
     <string name="pref_key_recommendations">pref_recommendations</string>
     <string name="pref_key_theme">pref_theme</string>
     <string name="pref_key_screen_general">general_settings</string>
